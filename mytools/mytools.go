@@ -1,4 +1,4 @@
-package Mytools
+package mytools
 
 
 import (
