@@ -1,7 +1,7 @@
 package main
 
 import "fmt"
-import "mytools/mytools"
+import "Mytools/Mytools"
 type test struct {
 	Name string
 	Age  int64
