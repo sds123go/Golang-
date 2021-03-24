@@ -38,3 +38,51 @@ func BytesToInt64(bys []byte) int64 {
 	}
 	return data
 }
+
+func IntToBytes(n int) []byte {
+    data := int64(n)
+    bytebuf := bytes.NewBuffer([]byte{})
+    binary.Write(bytebuf, binary.BigEndian, data)
+    return bytebuf.Bytes()
+}
+
+const (
+	zero  = byte('0')
+	one   = byte('1')
+	lsb   = byte('[') // left square brackets
+	rsb   = byte(']') // right square brackets
+	space = byte(' ')
+)
+// BytesToBinaryString get the string in binary format of a []byte or []int8.
+func BytesToBinaryString(bs []byte) string {
+	l := len(bs)
+	if l==0{
+		return ""
+	}
+	bl := l*8 + l + 1
+	buf := make([]byte, 0, bl)
+	buf = append(buf, lsb)
+	for _, b := range bs {
+		buf = appendBinaryString(buf, b)
+		buf = append(buf, space)
+	}
+	buf[bl-1] = rsb
+	return string(buf)
+}
+// append bytes of string in binary format.
+func appendBinaryString(bs []byte, b byte) []byte {
+	var a byte
+	for i := 0; i < 8; i++ {
+		a = b
+		b <<= 1
+		b >>= 1
+		switch a {
+		case b:
+			bs = append(bs, zero)
+		default:
+			bs = append(bs, one)
+		}
+		b <<= 1
+	}
+	return bs
+}

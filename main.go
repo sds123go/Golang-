@@ -8,16 +8,21 @@ type test struct {
 }
 
 func main() {
-	testdata := test{
-		Name: "sds",
-		Age:  25,
-	}
-	result := mytools.Struct2Map(testdata)
-	fmt.Println(result)
-	fmt.Println("***********************")
-	timestamp:=mytools.CurrentTimeStamp()
-	fmt.Println(timestamp)
-	fmt.Println("***********************")
-	datatime:=mytools.CurrentDataTime()
-	fmt.Println(datatime)
+	// testdata := test{
+	// 	Name: "sds",
+	// 	Age:  25,
+	// }
+	// result := mytools.Struct2Map(testdata)
+	// fmt.Println(result)
+	// fmt.Println("***********************")
+	// timestamp:=mytools.CurrentTimeStamp()
+	// fmt.Println(timestamp)
+	// fmt.Println("***********************")
+	// datatime:=mytools.CurrentDataTime()
+	// fmt.Println(datatime)
+	bytedata:=[]byte{}
+	//intdata:=258
+	//result:=mytools.IntToBytes(intdata)
+	result:=mytools.BytesToBinaryString(bytedata)
+	fmt.Print(result)
 }
