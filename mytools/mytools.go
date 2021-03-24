@@ -1,4 +1,4 @@
-package mytools
+package Mytools
 
 import (
 	"bytes"
@@ -40,10 +40,10 @@ func BytesToInt64(bys []byte) int64 {
 }
 
 func IntToBytes(n int) []byte {
-    data := int64(n)
-    bytebuf := bytes.NewBuffer([]byte{})
-    binary.Write(bytebuf, binary.BigEndian, data)
-    return bytebuf.Bytes()
+	data := int64(n)
+	bytebuf := bytes.NewBuffer([]byte{})
+	binary.Write(bytebuf, binary.BigEndian, data)
+	return bytebuf.Bytes()
 }
 
 const (
@@ -53,10 +53,11 @@ const (
 	rsb   = byte(']') // right square brackets
 	space = byte(' ')
 )
+
 // BytesToBinaryString get the string in binary format of a []byte or []int8.
 func BytesToBinaryString(bs []byte) string {
 	l := len(bs)
-	if l==0{
+	if l == 0 {
 		return ""
 	}
 	bl := l*8 + l + 1
@@ -69,6 +70,7 @@ func BytesToBinaryString(bs []byte) string {
 	buf[bl-1] = rsb
 	return string(buf)
 }
+
 // append bytes of string in binary format.
 func appendBinaryString(bs []byte, b byte) []byte {
 	var a byte
