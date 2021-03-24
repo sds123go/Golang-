@@ -1,5 +1,6 @@
 package Mytools
 
+
 import (
 	"bytes"
 	"encoding/binary"
